@@ -1,190 +1,92 @@
-import datetime
-TOP,DOWN,LEFT,RIGHT=0,1,2,3
+
+import matplotlib.pyplot as plt
+import random
+import math
 xmax,ymax = 20, 10
 InitFieldTexture = "J"
 BordureFieldTexture = "A"
 
-# ---------------   LOADING GRID ---------------------------------
-f = open("./fggstep1.txt", "r")
-lines = f.readlines()
-#print(lines)
-goldfield = ""
-for line in lines:
-    line = line[0:40]
-    goldfield += line+"\n"
-#print(goldfield)
-cptgrid = [fieldalt.split(' ')[:-1] for fieldalt in goldfield.split('\n')][2:-1]
-#print(cptgrid)
-
-# ----------------- LOADING CENTERS -------------------------------
-f2 = open("./fggstep1centers.txt", "r")
-lines = f2.readlines()
-#print(lines)
-centers = []
-for line in lines:
-    cx,cy = line.split(",")
-    cx,cy = int(cx)-1,int(cy)-1
-    centers.append([cx,cy])
-#print("Centers : ", centers)
+junglefield = " "
+jungleTexture = InitFieldTexture
+ci = 0
+# junglefield initialization
+for yi in range(ymax):
+    junglefield += "\n"
+    ci=0
+    for xi in range(xmax):
+        junglefield += "F "
+        ci+=1
+print(junglefield)
+grid = list(junglefield)
 
 def access_case(case_x, case_y, grid):
     return str(grid[case_y][case_x])
 
 def modify_case(element, case_x, case_y, grid):
-    cptgrid[case_y][case_x]=element
+    grid[case_y][case_x]=element
     return grid
 
-def show_grid(grid):
-    ptgd = "\n".join([" ".join(gridline) for gridline in grid])
-    print(ptgd+"\n\n")
+computinggrid = "".join("".join(grid).rstrip().split(" ")).split("\n")
+#print(computinggrid)
+cptgrid = [tsr.split(" ") for tsr in "".join(grid).split("\n")]
+#print(cptgrid)
 
-#show_grid(cptgrid)
+centers = []
+centers_char = []
+nb_fields = 7
+# center fields gen.
+for fci in range(nb_fields):
+    centers.append([random.randint(0,xmax),random.randint(0,ymax)])
+    centers_char.append(str(fci))
+    
+centers_color = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2',]    
+if(len(centers) != nb_fields):
+    logging.error("Incorrect Centers gen.")
+    exit(-1)
+
+points = [[],[],[]]
+for xi in range(xmax):
+    for yi in range(1,ymax+1):
+        nearestcenter = 0
+        ici = 0
+        nearestdist = math.sqrt((centers[0][0]-xi)**2+(centers[0][1]-yi)**2)
+        for fci in centers[1:]:
+            ici += 1
+            dist = math.sqrt((fci[0]-xi)**2+(fci[1]-yi)**2)
+            if(dist <= nearestdist):
+                nearestcenter = ici
+                nearestdist = dist
+            modify_case(centers_char[nearestcenter], xi, yi, cptgrid)
+            points[0].append(xi)
+            points[1].append(yi)
+            points[2].append(centers_color[nearestcenter])
+
 #print(access_case(5, 7, cptgrid))
 #ch = "A"
-#grid = modify_case("AA", 5, 7, cptgrid)
-#show_grid(grid)
+#cptgrid = modify_case("AA", 5, 7, cptgrid)
+gridtoshow = [" ".join(cptlist) for cptlist in cptgrid]
+gridtoshow = "\n".join(gridtoshow)
+print(gridtoshow)
 
-field_texture = []
-"""for xi in range(xmax):
-    for yi in range(ymax):
-        car = access_case(xi, yi, cptgrid)
-        if car not in field_texture:
-            field_texture.append(car)
-"""     
-fields = list(set(goldfield))
-#print(fields)
-#print("How many fields there are ?")
-fields2 = []
-for n in fields:
-    if n.isdecimal():
-        fields2.append(n)
+#fig, axes = plt.subplots(nrows=4, ncols=2, figsize=(14, 18))
+plt.suptitle('FGG GENERIC PROGRAM #002 (2026-02-06) Ay.O.', fontsize=20, fontweight='bold')
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f']
+colorsm = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2',]
 
-#print("There are "+str(len(fields2))+" fields")
-#print(fields2)
+f = open("./fggstep1.txt", "w")
+f.write(gridtoshow)
+f.close()
 
-class FieldState:
+#centers = [",".join(c2) for c2 in centers]
+#centers = "\n".join(centers)
+centers2 = ""
+for ci in range(len(centers)):
+    centers2 += str(centers[ci][0])+","+str(centers[ci][1])+"\n"
     
-    def __init__(self, cx, cy, state):
-        self.center = {'cx':cx, 'cy':cy}
-        self.state_car = state
-            
-        self.uppers = 0
-        self.downers = 0
-        self.lefters = 0
-        self.righters = 0
-            
-        self.uplers = 0
-        self.upriers = 0
-        self.dolers = 0
-        self.doriers = 0
-            
-        self.maxwidth = 0
-        self.maxheigth = 0
-        self.minwidth = 0
-        self.minheigth = 0
-            
-        self.neighbours = [[],[],[],[]]
-            
-    def update_ers(self, ixi, iyi, prevstate, xi, yi, state):
-        if state == access_case(cx, cy, cptgrid):
-            if xi > self.center['cx']:
-                self.uppers += 1
-            if xi < self.center['cx']:
-                self.downers +=1
-            if yi > self.center['cy']:
-                self.righters +=1
-            if yi < self.center['cy']:
-                self.lefters +=1
-                    
-            if xi>self.center['cx'] and yi>self.center['cy']:
-                self.upriers +=1
-            if xi>self.center['cx'] and yi<self.center['cy']:
-                self.uplers +=1
-            if xi<self.center['cx'] and yi>self.center['cy']:
-                self.doriers +=1
-            if xi<self.center['cx'] and yi<self.center['cy']:
-                self.dolers +=1
-                    
-            if prevstate != state:
-                if ixi > xi:
-                    self.neighbours[TOP].append(prevstate)
-                if iyi > yi:
-                    self.neighbours[LEFT].append(prevstate)
-                if iyi < yi:
-                    self.neighbours[RIGHT].append(prevstate)
-                if ixi < xi:
-                    self.neighbours[DOWN].append(prevstate)
-                
-    def show_state_card(self):
-        print("\nUppers : "+str(self.uppers))
-        print("\nDowners : "+str(self.downers))
-        print("\nLefters : "+str(self.lefters))
-        print("\nRighters : "+str(self.righters))
-                
-        print("\nUplers : "+str(self.uplers))
-        print("\nUpriers : "+str(self.upriers))
-        print("\nDolers : "+str(self.dolers))
-        print("\nDoriers : "+str(self.doriers))
-        
-        print("\nMax Width : "+str(self.maxwidth))
-        print("\nMax Heigth : "+str(self.maxheigth))
-        print("\nMin Heigth : "+str(self.minwidth))
-        print("\nMin Heigth : "+str(self.minheigth))
-        
-        print("\nNeighbours : "+str(self.neighbours))
-        
-    def print_state_card(self):
-        datetimetod = datetime.datetime
-        today = datetimetod.now()
-        print(today)
-        cardtxt= str(today)
-        cardtxt+="\nUppers : "+str(self.uppers)
-        cardtxt+="\nDowners : "+str(self.downers)
-        cardtxt+="\nLefters : "+str(self.lefters)
-        cardtxt+="\nRighters : "+str(self.righters)
-                
-        cardtxt+="\nUplers : "+str(self.uplers)
-        cardtxt+="\nUpriers : "+str(self.upriers)
-        cardtxt+="\nDolers : "+str(self.dolers)
-        cardtxt+="\nDoriers : "+str(self.doriers)
-        
-        cardtxt+="\nMax Width : "+str(self.maxwidth)
-        cardtxt+="\nMax Heigth : "+str(self.maxheigth)
-        cardtxt+="\nMin Heigth : "+str(self.minwidth)
-        cardtxt+="\nMin Heigth : "+str(self.minheigth)
-        
-        cardtxt+="\nNeighbours : "+str(self.neighbours)
-        return cardtxt
-        
-    def save_state(self):
-        namefile = "./fggtest.running/states/state_"+str(self.state_car)+".txt"
-        cardtxt = self.print_state_card()
-        f = open(namefile, "w+")
-        f.write(cardtxt)
-        f.close()
+print(centers2)
+f2 = open("./fggstep1centers.txt","w")
+f2.write(centers2)
+f2.close()
 
-fieldstates = []
-for centi in centers:
-    cix,ciy = centi[0], centi[1]
-    citxt = access_case(cix, ciy, cptgrid)
-    ifieldstate = FieldState(cix-1, ciy-1, citxt)
-    print("Field center : "+str(ifieldstate.center))
-    print("Field floor : "+ifieldstate.state_car)
-    fieldstates.append(ifieldstate)
-
-
-
-
-for xi in range(xmax):
-    for yi in range(ymax):
-        if xi>0:
-            oldstate = access_case(xi-1, yi, cptgrid)
-            for iproc_state in range(len(fieldstates)):
-                fieldstates[iproc_state].update_ers(xi-1, yi, oldstate, xi, yi, access_case(xi, yi, cptgrid))
-            
-for iproc_state in range(len(fieldstates)):
-    fieldstates[iproc_state].show_state_card()
-    fieldstates[iproc_state].print_state_card()
-    fieldstates[iproc_state].save_state()
-    
-print("\nFIELDS STATES PROCESSED, you can find results in 'states' Folder\n")
+plt.scatter(points[0],points[1],100,c=points[2],marker="s")
+plt.show()
