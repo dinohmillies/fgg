@@ -1,9 +1,3 @@
-# Filename: fggtest.run.py
-# SWE : Ayas Oukache
-# Viernes 13 febrero 2026 7:39PM
-# Owner : The Crypto Bot News, Supracodelabs
-# File content is protected under author rights
-
 import datetime
 TOP,DOWN,LEFT,RIGHT=0,1,2,3
 xmax,ymax = 20, 10
@@ -73,6 +67,7 @@ class FieldState:
     def __init__(self, cx, cy, state):
         self.center = {'cx':cx, 'cy':cy}
         self.state_car = state
+        self.namefile = "./fggtest.running/states/state_"+str(self.state_car)+".txt"
             
         self.uppers = 0
         self.downers = 0
@@ -92,6 +87,11 @@ class FieldState:
         self.neighbours = [[],[],[],[]]
             
     def update_ers(self, ixi, iyi, prevstate, xi, yi, state):
+        maxwidth = 0
+        maxheigth = 0
+        minwidth = xmax
+        minheigth = ymax
+        
         if state == access_case(cx, cy, cptgrid):
             if xi > self.center['cx']:
                 self.uppers += 1
@@ -163,12 +163,37 @@ class FieldState:
         return cardtxt
         
     def save_state(self):
-        namefile = "./fggtest.running/states/state_"+str(self.state_car)+".txt"
+        namefile = self.namefile
         cardtxt = self.print_state_card()
         f = open(namefile, "w+")
         f.write(cardtxt)
         f.close()
 
+    def load_state(self, filepath="./state.txt"):
+        f2 = open(self.namefile, "r")
+        lines = f2.readlines()
+        print(lines)
+        vectors = []
+        for line in lines[1:]:
+            vectors.append(line.split(" : ")[1][:-1])
+        
+        self.uppers = int(vectors[0])
+        self.downers = int(vectors[1])
+        self.lefters = int(vectors[2])
+        self.righters = int(vectors[3])
+        
+        self.uplers = int(vectors[4])
+        self.upriers = int(vectors[5])
+        self.dolers = int(vectors[6])
+        self.doriers = int(vectors[7])
+            
+        self.maxwidth = min([self.righters-self.lefters, xmax])
+        self.maxheigth = min([self.downers-self.uppers, ymax])
+        self.minwidth = int(vectors[10])
+        self.minheigth = int(vectors[11])
+        print(vectors)
+
+        
 fieldstates = []
 for centi in centers:
     cix,ciy = centi[0], centi[1]
@@ -194,3 +219,16 @@ for iproc_state in range(len(fieldstates)):
     fieldstates[iproc_state].save_state()
     
 print("\nFIELDS STATES PROCESSED, you can find results in 'states' Folder\n")
+
+fimax = len(fieldstates)
+print("\nFIELDS STATES PROCESSING, LOADING STATES\n")
+loadedstates = []
+for fi in range(fimax):
+    cxi,cyi = centers[fi][0],centers[fi][1]
+    statei = FieldState(cxi,cyi,fi)
+    statei.namefile = "./fggtest.running/states/state_"+str(fi)+".txt"
+    statei.load_state()
+    loadedstates.append(statei)
+
+    statei.show_state_card()
+    
