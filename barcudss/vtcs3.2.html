@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTC Market Growth - Social Share</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .social-card {
+            background: #0f172a;
+            width: 540px; /* 1080px / 2 for display */
+            height: 675px; /* 1350px / 2 for display */
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+        .header { margin-bottom: 20px; }
+        .header h1 { font-size: 28px; font-weight: 900; margin: 0; color: #38bdf8; line-height: 1.1; }
+        .header p { font-size: 14px; color: #94a3b8; margin: 8px 0 0 0; }
+        
+        .axis-label { font-size: 12px; fill: #64748b; font-weight: 600; }
+        .line { fill: none; stroke: #38bdf8; stroke-width: 6; stroke-linecap: round; }
+        .area { fill: url(#area-gradient); }
+        
+        .annotation { font-size: 13px; fill: #fb7185; font-weight: 700; }
+        .footer { 
+            margin-top: auto; 
+            font-size: 11px; 
+            color: #475569; 
+            display: flex; 
+            justify-content: space-between;
+            border-top: 1px solid #1e293b;
+            padding-top: 15px;
+        }
+        button {
+            margin-top: 20px;
+            background: #38bdf8;
+            color: #020617;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        button:hover { transform: scale(1.05); background: #7dd3fc; }
+    </style>
+</head>
+<body>
+
+    <div class="social-card" id="capture-area">
+        <div class="header">
+            <h1>The VTC Revolution</h1>
+            <p>Evolution of registered companies (2010–2026)</p>
+        </div>
+
+        <div id="viz"></div>
+
+        <div class="footer">
+            <span>Source: REVTC Data / Market Analysis</span>
+            <span>#VTC #Mobility2026</span>
+        </div>
+    </div>
+
+    <button id="save-btn">📥 Download for Instagram/LinkedIn</button>
+
+    <script>
+        const data = [
+            { year: 2010, count: 500 },
+            { year: 2014, count: 7200 },
+            { year: 2016, count: 10658 },
+            { year: 2019, count: 39000 },
+            { year: 2021, count: 53298 },
+            { year: 2024, count: 71300 },
+            { year: 2026, count: 85000 }
+        ];
+
+        const width = 480, height = 450;
+        const margin = {top: 20, right: 30, bottom: 40, left: 50};
+
+        const svg = d3.select("#viz")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("id", "social-svg");
+
+        const x = d3.scaleTime()
+            .domain(d3.extent(data, d => new Date(d.year, 0, 1)))
+            .range([margin.left, width - margin.right]);
+
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.count) * 1.1])
+            .range([height - margin.bottom, margin.top]);
+
+        // Gradient
+        const defs = svg.append("defs");
+        const grad = defs.append("linearGradient").attr("id", "area-gradient")
+            .attr("x1", "0%").attr("y1", "0%").attr("x2", "0%").attr("y2", "100%");
+        grad.append("stop").attr("offset", "0%").attr("stop-color", "#38bdf8").attr("stop-opacity", 0.4);
+        grad.append("stop").attr("offset", "100%").attr("stop-color", "#38bdf8").attr("stop-opacity", 0);
+
+        // Grid Lines
+        svg.append("g").attr("class", "grid")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(x).ticks(5).tickSize(-height + margin.top + margin.bottom).tickFormat(""))
+            .style("stroke-opacity", 0.1);
+
+        // Data Path
+        const area = d3.area().x(d => x(new Date(d.year, 0, 1))).y0(height - margin.bottom).y1(d => y(d.count)).curve(d3.curveMonotoneX);
+        const line = d3.line().x(d => x(new Date(d.year, 0, 1))).y(d => y(d.count)).curve(d3.curveMonotoneX);
+
+        svg.append("path").datum(data).attr("class", "area").attr("d", area);
+        svg.append("path").datum(data).attr("class", "line").attr("d", line);
+
+        // Axes
+        svg.append("g").attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(x).ticks(5).tickFormat(d3.timeFormat("%Y")))
+            .attr("class", "axis-label").select(".domain").remove();
+
+        // Highlighting the "Big Jump"
+        svg.append("text")
+            .attr("x", x(new Date(2014, 0, 1)))
+            .attr("y", y(7200) - 40)
+            .attr("class", "annotation")
+            .text("The 'Uber' Effect ➔");
+
+        svg.append("circle")
+            .attr("cx", x(new Date(2014, 0, 1)))
+            .attr("cy", y(7200))
+            .attr("r", 6)
+            .attr("fill", "#fb7185");
+
+        // --- DOWNLOAD LOGIC (2X UPSCALE FOR HD) ---
+        document.getElementById('save-btn').onclick = function() {
+            const container = document.getElementById('capture-area');
+            const svgData = new XMLSerializer().serializeToString(document.getElementById('social-svg'));
+            
+            // To properly capture the whole card, we'd typically use html2canvas 
+            // but for a pure D3 approach, this SVG capture is the core:
+            const canvas = document.createElement("canvas");
+            canvas.width = 1080; canvas.height = 1350;
+            const ctx = canvas.getContext("2d");
+            
+            ctx.fillStyle = "#0f172a"; // Background
+            ctx.fillRect(0,0,1080,1350);
+            
+            const img = new Image();
+            const svgBlob = new Blob([svgData], {type: "image/svg+xml;charset=utf-8"});
+            const url = URL.createObjectURL(svgBlob);
+
+            img.onload = function() {
+                ctx.drawImage(img, 100, 200, 880, 880);
+                const link = document.createElement("a");
+                link.download = "VTC_Growth_Social.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            };
+            img.src = url;
+        };
+    </script>
+</body>
+</html>

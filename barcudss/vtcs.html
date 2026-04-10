@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTC Market Growth - Pro Export</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        button:hover {
+            background-color: #7dd3fc;
+            transform: translateY(-2px);
+        }
+        /* Styles used by the SVG */
+        .line { fill: none; stroke: #38bdf8; stroke-width: 4; }
+        .area { fill: rgba(56, 189, 248, 0.2); }
+        .axis-label text { fill: #94a3b8; font-size: 12px; }
+        .axis-label path, .axis-label line { stroke: #475569; }
+        .title { fill: #38bdf8; font-size: 22px; font-weight: bold; font-family: sans-serif; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="viz"></div>
+    </div>
+
+    <div class="controls">
+        <button id="download-btn">📥 Save as PNG</button>
+    </div>
+
+    <script>
+        const data = [
+            { year: 2010, count: 500 },
+            { year: 2014, count: 7200 },
+            { year: 2016, count: 10658 },
+            { year: 2019, count: 39000 },
+            { year: 2021, count: 53298 },
+            { year: 2023, count: 56000 },
+            { year: 2024, count: 71300 },
+            { year: 2026, count: 85000 }
+        ];
+
+        const margin = {top: 60, right: 40, bottom: 50, left: 70};
+        const width = 700 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+
+        const svg = d3.select("#viz")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .attr("id", "vtc-svg")
+            .style("background-color", "#1e293b") // Vital for export background
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const x = d3.scaleTime()
+            .domain(d3.extent(data, d => new Date(d.year, 0, 1)))
+            .range([0, width]);
+
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.count) * 1.1])
+            .range([height, 0]);
+
+        // Axes
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .attr("class", "axis-label")
+            .call(d3.axisBottom(x).ticks(8).tickFormat(d3.timeFormat("%Y")));
+
+        svg.append("g")
+            .attr("class", "axis-label")
+            .call(d3.axisLeft(y));
+
+        // Area & Line
+        const area = d3.area()
+            .x(d => x(new Date(d.year, 0, 1)))
+            .y0(height)
+            .y1(d => y(d.count))
+            .curve(d3.curveMonotoneX);
+
+        const line = d3.line()
+            .x(d => x(new Date(d.year, 0, 1)))
+            .y(d => y(d.count))
+            .curve(d3.curveMonotoneX);
+
+        svg.append("path").datum(data).attr("class", "area").attr("d", area);
+        svg.append("path").datum(data).attr("class", "line").attr("d", line);
+
+        svg.append("text")
+            .attr("x", width / 2).attr("y", -25)
+            .attr("text-anchor", "middle").attr("class", "title")
+            .text("VTC Growth Statistics (2010-2026)");
+
+        // --- DOWNLOAD LOGIC ---
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const svgElement = document.getElementById('vtc-svg');
+            const serializer = new XMLSerializer();
+            let source = serializer.serializeToString(svgElement);
+
+            // Add namespaces if missing
+            if(!source.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)){
+                source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+            }
+
+            const canvas = document.createElement("canvas");
+            canvas.width = svgElement.clientWidth * 2; // High DPI export
+            canvas.height = svgElement.clientHeight * 2;
+            const context = canvas.getContext("2d");
+            context.scale(2, 2);
+
+            const img = new Image();
+            const svgBlob = new Blob([source], {type: "image/svg+xml;charset=utf-8"});
+            const url = URL.createObjectURL(svgBlob);
+
+            img.onload = function() {
+                context.drawImage(img, 0, 0);
+                const pngUrl = canvas.toDataURL("image/png");
+                
+                const downloadLink = document.createElement("a");
+                downloadLink.href = pngUrl;
+                downloadLink.download = "vtc-growth-chart.png";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                URL.revokeObjectURL(url);
+            };
+            img.src = url;
+        });
+    </script>
+</body>
+</html>
