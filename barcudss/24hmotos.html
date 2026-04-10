@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24H Le Mans Moto Winners</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; background-color: #f4f7f6; padding: 20px; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        button { margin-top: 20px; padding: 12px 24px; background-color: #1b749d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button:hover { background-color: #145a7a; }
+        .label { font-size: 14px; font-weight: bold; fill: #333; }
+        .axis-label { font-size: 12px; fill: #666; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="chart"></div>
+    <center><button id="downloadBtn">Download Chart as PNG</button></center>
+</div>
+
+<script>
+    const data = [
+        { brand: "Suzuki", wins: 15, color: "#7d52e3" },
+        { brand: "Honda", wins: 14, color: "#76d4d5" },
+        { brand: "Kawasaki", wins: 14, color: "#1b749d" },
+        { brand: "Yamaha", wins: 5, color: "#6825a7" }
+    ];
+
+    const margin = {top: 50, right: 30, bottom: 60, left: 60},
+          width = 600 - margin.left - margin.right,
+          height = 400 - margin.top - margin.bottom;
+
+    // Create SVG
+    const svg = d3.select("#chart")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("xmlns", "http://www.w3.org/2000/svg") // Required for downloading
+      .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // X axis
+    const x = d3.scaleBand()
+      .range([ 0, width ])
+      .domain(data.map(d => d.brand))
+      .padding(0.2);
+
+    svg.append("g")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x))
+      .selectAll("text")
+        .attr("class", "axis-label");
+
+    // Y axis
+    const y = d3.scaleLinear()
+      .domain([0, 16])
+      .range([ height, 0]);
+
+    svg.append("g")
+      .call(d3.axisLeft(y).ticks(8));
+
+    // Bars
+    svg.selectAll("rect")
+      .data(data)
+      .enter()
+      .append("rect")
+        .attr("x", d => x(d.brand))
+        .attr("y", d => y(d.wins))
+        .attr("width", x.bandwidth())
+        .attr("height", d => height - y(d.wins))
+        .attr("fill", d => d.color)
+        .attr("rx", 4);
+
+    // Win labels
+    svg.selectAll(".label")
+      .data(data)
+      .enter()
+      .append("text")
+        .attr("class", "label")
+        .attr("x", d => x(d.brand) + x.bandwidth() / 2)
+        .attr("y", d => y(d.wins) - 10)
+        .attr("text-anchor", "middle")
+        .text(d => d.wins);
+
+    // Title
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", -20)
+        .attr("text-anchor", "middle")
+        .style("font-size", "20px")
+        .style("font-weight", "bold")
+        .style("fill", "#222")
+        .text("24H Le Mans Moto: All-Time Winners");
+
+    // --- Download Logic ---
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        const svgElement = document.querySelector("#chart svg");
+        const serializer = new XMLSerializer();
+        let source = serializer.serializeToString(svgElement);
+
+        // Add namespaces
+        if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+            source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+        }
+        
+        const image = new Image();
+        const svgBlob = new Blob([source], {type: 'image/svg+xml;charset=utf-8'});
+        const url = URL.createObjectURL(svgBlob);
+
+        image.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = svgElement.clientWidth;
+            canvas.height = svgElement.clientHeight;
+            const context = canvas.getContext('2d');
+            
+            // Background color for the exported image
+            context.fillStyle = "white";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            context.drawImage(image, 0, 0);
+            
+            const pngUrl = canvas.toDataURL("image/png");
+            const downloadLink = document.createElement("a");
+            downloadLink.href = pngUrl;
+            downloadLink.download = "LeMans_Winners_Chart.png";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(url);
+        };
+        image.src = url;
+    });
+</script>
+
+</body>
+</html>
