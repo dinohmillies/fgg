@@ -22,3 +22,10 @@ Qui améliore. > AGRIC Plantes,, cultures, améliorantes, qui augmentent la fert
 améliorer v. tr.
 [1] Rendre meilleur, perfectionner. Améliorer le rendement d'un sol par des engrais. Améliorer le niveau de vie de la population.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
+
+BEST RECORD OF THE WEEK :
+le plus jeune chroniqueur de journal (homme)
+Aneeshar Kunchala (GBR, né en 2015) a 8 ans et 76 jours quand sa chronique sur les animaux menacés est lancée dans First News, le 7 avr 2023.
+En 2024, il écrit plus de 60 chroniques pour le journal pour enfants, enrichies de faits amusants et de ses peintures. Pour plus d'actions d'Aneeshwar pour la planète, voir p. 158.
+
+Developed by CUDSS Kipowaa
