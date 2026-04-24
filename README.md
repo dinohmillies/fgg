@@ -24,8 +24,8 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-le plus jeune chroniqueur de journal (homme)
-Aneeshar Kunchala (GBR, né en 2015) a 8 ans et 76 jours quand sa chronique sur les animaux menacés est lancée dans First News, le 7 avr 2023.
-En 2024, il écrit plus de 60 chroniques pour le journal pour enfants, enrichies de faits amusants et de ses peintures. Pour plus d'actions d'Aneeshwar pour la planète, voir p. 158.
+LE PLUS D'ARGENT RÉCOLTÉ EN CAMPANT
+Entre le 28 mars 2020 et le 1er mars 2023. Max Woosey (GBR) dor toutes les nuits dans une tente, 
+récoltant 845 000$ pour un hospice de Devon(GBR). Il voulait remercier le personnel d'avoir pris soin de son voisin décédé, Rick Abbott, qui lui avait offert cette tente en disant : "Promets-moi d'y vivre tes propres aventurres.".
 
 Developed by CUDSS Kipowaa
