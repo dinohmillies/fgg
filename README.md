@@ -23,10 +23,10 @@ améliorer v. tr.
 [1] Rendre meilleur, perfectionner. Améliorer le rendement d'un sol par des engrais. Améliorer le niveau de vie de la population.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
+
 BEST RECORD OF THE WEEK :
 
-le plus jeune chroniqueur de journal (homme)
-Aneeshar Kunchala (GBR, né en 2015) a 8 ans et 76 jours quand sa chronique sur les animaux menacés est lancée dans First News, le 7 avr 2023.
-En 2024, il écrit plus de 60 chroniques pour le journal pour enfants, enrichies de faits amusants et de ses peintures. Pour plus d'actions d'Aneeshwar pour la planète, voir p. 158.
+LE VOYAGE LE PLUS RAPIDE DE LAND4S END À JOHN O'GROATS EN FAUTEUIL ROULANT STANDARD
+Lexi Chambers (GBR) a relié les extrémités géographiques de la Grande-Bretagne dans son fauteul roulant en 44 jours, 1Hh et 43 min, du 27 août au 10 oct 2024. Désireuse de montrer que l'on peut pratiquer un sport avec le matériel dont on dispose, elle a realisé ce périple de John o'Groats à Land's End dans son fauteuil roulant. Cette vétéran de l'armée et ancienne infirmière a récolté des fonds pour plusieurs associations caritatives.
 
 Developed by CUDSS Kipowaa
