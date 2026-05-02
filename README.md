@@ -24,8 +24,6 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-LE PLUS D'ARGENT RÉCOLTÉ EN CAMPANT
-Entre le 28 mars 2020 et le 1er mars 2023. Max Woosey (GBR) dor toutes les nuits dans une tente, 
-récoltant 845 000$ pour un hospice de Devon(GBR). Il voulait remercier le personnel d'avoir pris soin de son voisin décédé, Rick Abbott, qui lui avait offert cette tente en disant : "Promets-moi d'y vivre tes propres aventurres.".
-
+LE VOYAGE LE PLUS RAPIDE DE LAND4S END À JOHN O'GROATS EN FAUTEUIL ROULANT STANDARD
+Lexi Chambers (GBR) a relié les extrémités géographiques de la Grande-Bretagne dans son fauteul roulant en 44 jours, 1Hh et 43 min, du 27 août au 10 oct 2024. Désireuse de montrer que l'on peut pratiquer un sport avec le matériel dont on dispose, elle a realisé ce périple de John o'Groats à Land's End dans son fauteuil roulant. Cette vétéran de l'armée et ancienne infirmière a récolté des fonds pour plusieurs associations caritatives.
 Developed by CUDSS Kipowaa
