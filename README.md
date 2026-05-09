@@ -24,6 +24,6 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-LE VOYAGE LE PLUS RAPIDE DE LAND'S END À JOHN O'GROATS EN FAUTEUIL ROULANT STANDARD
-Lexi Chambers (GBR) a relié les extrémités géographiques de la Grande-Bretagne dans son fauteul roulant en 44 jours, 1Hh et 43 min, du 27 août au 10 oct 2024. Désireuse de montrer que l'on peut pratiquer un sport avec le matériel dont on dispose, elle a realisé ce périple de John o'Groats à Land's End dans son fauteuil roulant. Cette vétéran de l'armée et ancienne infirmière a récolté des fonds pour plusieurs associations caritatives.
+LE PLUS DE TROPHÉES LAURENCE OLIVIER POUR UN SPECTACLE MUSICAL EN 1 AN
+Quatre spectacles musicaux ont remporté 7 statuettes Olivier. Le dernier en date est la reprise de Sunset Boulevard dans le West End londonien en 2023, qui a permis à Tom Francis et Nicole Scherzinger (en photo) d'obtenir le trophée du meilleur acteur et de la meilleure actrice, sans oublier Jamie Lloyd, récompensé par celui du meilleur réalisateur. Sunset Boulevard était nominé dans 11 catégories. Les 3 autres spectacles à partager ce record sont Roald Dahl's Matilda: The Musical(2012, 9 nominations); Hamilton: An American Musical (2018, 13 nominations); et Cabaret (2022, 11 nominations).
 Developed by CUDSS Kipowaa
