@@ -24,6 +24,6 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-LE PLUS DE TROPHÉES LAURENCE OLIVIER POUR UN SPECTACLE MUSICAL EN 1 AN
-Quatre spectacles musicaux ont remporté 7 statuettes Olivier. Le dernier en date est la reprise de Sunset Boulevard dans le West End londonien en 2023, qui a permis à Tom Francis et Nicole Scherzinger (en photo) d'obtenir le trophée du meilleur acteur et de la meilleure actrice, sans oublier Jamie Lloyd, récompensé par celui du meilleur réalisateur. Sunset Boulevard était nominé dans 11 catégories. Les 3 autres spectacles à partager ce record sont Roald Dahl's Matilda: The Musical(2012, 9 nominations); Hamilton: An American Musical (2018, 13 nominations); et Cabaret (2022, 11 nominations).
+La survie la plus longue avec un seul poumon (hommes)
+Le 23 juin 1957, Donald Cantrell (USA) a subi une pneumonectomie pour retirer son poumon gauche. Il a vécu 66 ans et 206 jours depuis lors, comme vérifié à Fairfield (USA), le 15 janv 2024. Donald mène une vie saine et participe même à des triathlons.
 Developed by CUDSS Kipowaa
