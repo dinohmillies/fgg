@@ -26,8 +26,8 @@ améliorer v. tr.
 
 BEST RECORD OF THE WEEK :
 
-La survie la plus longue avec un seul poumon (hommes)
-Le 23 juin 1957, Donald Cantrell (USA) a subi une pneumonectomie pour retirer son poumon gauche. Il a vécu 66 ans et 206 jours depuis lors, comme vérifié à Fairfield (USA), le 15 janv 2024. Donald mène une vie saine et participe même à des triathlons.
+The World's Longest Ears on a Donkey
+Achieved by a donkey named Bambou from Lincolnshire, United Kingdom. Each of his ears measures an incredible 35 centimeters (13.7 inches) long!
 
 Developed by CUDSS Kipowaa
 
