@@ -26,8 +26,11 @@ améliorer v. tr.
 
 BEST RECORD OF THE WEEK :
 
-The World's Longest Ears on a Donkey
-Achieved by a donkey named Bambou from Lincolnshire, United Kingdom. Each of his ears measures an incredible 35 centimeters (13.7 inches) long!
+Yiheng Wang (CHN) reçoit un casse-tête cubique à 5 ans. Il ne se doute alors pas qu'il battra des records avec !
+Grâce à son application et son entraînement, il est déjà reconnu comme le roi du speedcubing !
+Yiheng est entré dans la famille GWR le 12 mars 2023 avec le record du temps moyen le plus court pour résoudre un casse-tête
+cubique rotatif 3x3x3 - 4.69s.
 
 Developed by CUDSS Kipowaa
+
 
