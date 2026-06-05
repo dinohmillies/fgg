@@ -24,12 +24,12 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 
+
 BEST RECORD OF THE WEEK :
 
-Yiheng Wang (CHN) reçoit un casse-tête cubique à 5 ans. Il ne se doute alors pas qu'il battra des records avec !
-Grâce à son application et son entraînement, il est déjà reconnu comme le roi du speedcubing !
-Yiheng est entré dans la famille GWR le 12 mars 2023 avec le record du temps moyen le plus court pour résoudre un casse-tête
-cubique rotatif 3x3x3 - 4.69s.
+LA PLUS GRANDE BIBLIOTHÈQUE DE LIVRES EN BRAILLE
+Le 31 octobre 2024, le National Library Service for the Blind and Print Disabled de la Bibliothèque
+du Congrès comprenait 140374 livres en braille. Ces dernières années, les technologies, comme les systèmes de synthése vocale TTS et l'impression à la demande, ont conduit la plupart des bibliothèques braille à supprimer peu à peu les livres reliés.
 
 Developed by CUDSS Kipowaa
 
