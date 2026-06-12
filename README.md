@@ -24,7 +24,5 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-LA PLUS GRANDE BIBLIOTHÈQUE DE LIVRES EN BRAILLE
-Le 31 octobre 2024, le National Library Service for the Blind and Print Disabled de la Bibliothèque
-du Congrès comprenait 140374 livres en braille. Ces dernières années, les technologies, comme les systèmes de synthése vocale TTS et l'impression à la demande, ont conduit la plupart des bibliothèques braille à supprimer peu à peu les livres reliés.
+On February 12, 2026, she set a new global standard in the Women's 500m short-track speed skating at the Milano-Cortina Winter Olympics, crossing the finish line with a world-record time of 41.399 seconds.
 Developed by CUDSS Kipowaa
