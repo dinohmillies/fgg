@@ -24,5 +24,5 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-On February 12, 2026, she set a new global standard in the Women's 500m short-track speed skating at the Milano-Cortina Winter Olympics, crossing the finish line with a world-record time of 41.399 seconds.
-Developed by CUDSS Kipowaa
+The longest distance on a top model podium.
+Ololade Ayebola (NGA) walk a long way of 125.11km on a podium in Lagos (NGA), the 1st of October of 2024. SHe has been told she was too small to perform  a Lagos Fashion Week. She decided to create her own fashion show with a diversity of models (albinos, wearing tribals marks, of tall size, etc.)
