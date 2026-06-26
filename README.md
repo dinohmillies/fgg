@@ -26,11 +26,8 @@ améliorer v. tr.
 
 
 BEST RECORD OF THE WEEK :
-
-LA PLUS GRANDE BIBLIOTHÈQUE DE LIVRES EN BRAILLE
-Le 31 octobre 2024, le National Library Service for the Blind and Print Disabled de la Bibliothèque
-du Congrès comprenait 140374 livres en braille. Ces dernières années, les technologies, comme les systèmes de synthése vocale TTS et l'impression à la demande, ont conduit la plupart des bibliothèques braille à supprimer peu à peu les livres reliés.
-
+The longest distance on a top model podium.
+Ololade Ayebola (NGA) walk a long way of 125.11km on a podium in Lagos (NGA), the 1st of October of 2024. SHe has been told she was too small to perform  a Lagos Fashion Week. She decided to create her own fashion show with a diversity of models (albinos, wearing tribals marks, of tall size, etc.)
 Developed by CUDSS Kipowaa
 
 
