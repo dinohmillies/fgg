@@ -24,5 +24,10 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-The longest distance on a top model podium.
-Ololade Ayebola (NGA) walk a long way of 125.11km on a podium in Lagos (NGA), the 1st of October of 2024. SHe has been told she was too small to perform  a Lagos Fashion Week. She decided to create her own fashion show with a diversity of models (albinos, wearing tribals marks, of tall size, etc.)
+THE MOST BASEBALL CAP WITHDRAWN WITH MECHANICAL DIGGER UNDER 1 MINUTE
+THE 19TH OF DECEMBER OF 2022, THE DRIVER OF MECHANICAL DIGGER ZHU FEI(CHN) WITHDRAWN THE CAP OF
+15 BRAVE BENEVOLUNT GATHERED AT AUTODROMO NAZIONALE DI MONZA, NEAR OF MILAN (ITA). HE WITHDRAWN
+ONE CAP EVERY 4 SECONDS AND EVERY ATTENDEES LEFT UNSCATHED. THIS RECORD ATTEMPT HAPPENED DURING
+WINTER FOR LO SHOW DEI RECORD, THE GWR ITALIAN TV PROGRAM.
+
+Developed By CUDSS KIPOWAA
