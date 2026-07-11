@@ -24,10 +24,8 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-THE MOST BASEBALL CAP WITHDRAWN WITH MECHANICAL DIGGER UNDER 1 MINUTE
-THE 19TH OF DECEMBER OF 2022, THE DRIVER OF MECHANICAL DIGGER ZHU FEI(CHN) WITHDRAWN THE CAP OF
-15 BRAVE BENEVOLUNT GATHERED AT AUTODROMO NAZIONALE DI MONZA, NEAR OF MILAN (ITA). HE WITHDRAWN
-ONE CAP EVERY 4 SECONDS AND EVERY ATTENDEES LEFT UNSCATHED. THIS RECORD ATTEMPT HAPPENED DURING
-WINTER FOR LO SHOW DEI RECORD, THE GWR ITALIAN TV PROGRAM.
+The Prince Moulay Abdellah Stadium in Rabat, Morocco, has set a Guinness World Record for the fastest stadium construction in the world.
+In less than two years, the site was transformed into an ultra-modern, 68,700-seat complex. The state-of-the-art facility features a palm-leaf-inspired facade, advanced crowd-management technologies, and eco-friendly systems like solar panels and water recycling.
+This record-breaking renovation is a major asset in Morocco's ambitious bid to host a semi-final or the final of the 2030 FIFA World Cup.
 
 Developed By CUDSS KIPOWAA
