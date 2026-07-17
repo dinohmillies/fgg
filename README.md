@@ -24,8 +24,6 @@ améliorer v. tr.
 > v. pron. Devenir meilleur. Le temps s'améliore. Ant. empirer.
 
 BEST RECORD OF THE WEEK :
-The Prince Moulay Abdellah Stadium in Rabat, Morocco, has set a Guinness World Record for the fastest stadium construction in the world.
-In less than two years, the site was transformed into an ultra-modern, 68,700-seat complex. The state-of-the-art facility features a palm-leaf-inspired facade, advanced crowd-management technologies, and eco-friendly systems like solar panels and water recycling.
-This record-breaking renovation is a major asset in Morocco's ambitious bid to host a semi-final or the final of the 2030 FIFA World Cup.
+STAR SEARCH PROGRAM IS THE PROGRAM THAT BRINGS YOU SAFELY FROM EARTH TO THE TARGETTED STAR WITH AN ACCURACY OF 95.99% AT START.
 
 Developed By CUDSS KIPOWAA
