@@ -26,8 +26,8 @@ améliorer v. tr.
 
 
 BEST RECORD OF THE WEEK :
-The longest distance on a top model podium.
-Ololade Ayebola (NGA) walk a long way of 125.11km on a podium in Lagos (NGA), the 1st of October of 2024. SHe has been told she was too small to perform  a Lagos Fashion Week. She decided to create her own fashion show with a diversity of models (albinos, wearing tribals marks, of tall size, etc.)
+STAR SEARCH PROGRAM IS THE PROGRAM THAT BRINGS YOU SAFELY FROM EARTH TO THE TARGETTED STAR WITH AN ACCURACY OF 95.99% AT START.
+
 Developed by CUDSS Kipowaa
 
 
